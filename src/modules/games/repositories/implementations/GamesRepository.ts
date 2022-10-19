@@ -25,7 +25,7 @@ export class GamesRepository implements IGamesRepository {
     // Complete usando raw query
   }
 
-  async findUsersByGameId(id: string): Promise<any[]> {
+  async findUsersByGameId(id: string): Promise<User[]> {
     return this.repository
       .createQueryBuilder("games")
       .innerJoinAndSelect("games.users", "users", "games.id = :id", { id })
